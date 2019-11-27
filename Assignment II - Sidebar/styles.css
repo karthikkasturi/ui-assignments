@@ -39,13 +39,14 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .main-container .sidebar .sidebar-mini .mini-item-container.active {
     background: #f4f4fe;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;;
-    position: relative;
+    transition: border-radius 0.2s ease-out;
 }
 
 .main-container .sidebar .sidebar-mini .mini-item-container.active .mini-item {
@@ -54,24 +55,35 @@ html, body {
     box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.2);
 }
 
-.main-container .sidebar .sidebar-mini .mini-item-container.active::before {
+.main-container .sidebar .sidebar-mini .mini-item-container::before {
     position: absolute;
     content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61"><path d="M0 61h61V0A61 61 0 0 1 0 61z" fill="%23f4f4fe"/></svg>');
     transform: scaleX(-1);
+    top: 0;
+    left: 0; 
+    transition: top 0.2s ease-out;
+}
+
+.main-container .sidebar .sidebar-mini .mini-item-container.active::before {
+    top: -20px;
     height: 20px;
     width: 20px;
-    top: -20px;
-    left: 0px; 
+}
+
+
+.main-container .sidebar .sidebar-mini .mini-item-container::after {
+    content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61"><path d="M0 61h61V0A61 61 0 0 1 0 61z" fill="%23f4f4fe"/></svg>');
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transform: rotate(180deg);
+    transition: bottom 0.2s ease-out;
 }
 
 .main-container .sidebar .sidebar-mini .mini-item-container.active::after {
-    position: absolute;
-    content: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61"><path d="M0 61h61V0A61 61 0 0 1 0 61z" fill="%23f4f4fe"/></svg>');
-    transform: rotate(180deg);
     height: 20px;
     width: 20px;
     bottom: -20px;
-    left: 0px;
 }
 
 .main-container .sidebar .sidebar-mini .mini-item-container .mini-item {
